@@ -1,5 +1,5 @@
 class BankAccount:
-    def __init__(self, balance = int(100.00)):
+    def __init__(self, balance = 100):
         self.balance = balance
     
     def withdrawal(self, amount):
@@ -14,7 +14,7 @@ class BankAccount:
         return self
 
     def display_account_info(self):
-        print("you have","$"+str(self.balance),"available.")
+        print(f"you have $ {int(self.balance)} available.")
         return self
     
     def yield_interest(self):
@@ -22,7 +22,7 @@ class BankAccount:
             self.balance += self.balance * .06
         return self
 
-class bank_member:
+class BankMember:
     def __init__(self, name):
         self.name = name
         self.account = BankAccount(10)
@@ -32,7 +32,7 @@ class bank_member:
         return self
     
     def print_info(self):
-        print(self.account.display_account_info())
+        self.account.display_account_info()
         print(self.name)
     
     def deposit(self, number):
@@ -44,7 +44,7 @@ class bank_member:
     #     user.balance += number
     #     return self
 
-Ben = bank_member("Ben")
+Ben = BankMember("Ben")
 Ben.print_info()
 print("________________")
 Ben.deposit(20).withdrawal(5).print_info()
