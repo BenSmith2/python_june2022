@@ -7,6 +7,10 @@ class bank_member:
     def withdrawal(self, number):
         self.balance -= number
         return self
+
+    def deposit(self, number):
+        self.balance += number
+        return self
     
     def print_info(self):
         print(self.balance)
