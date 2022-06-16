@@ -4,19 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <title>Document</title>
 </head>
 <body>
 
-<h1>Index Page</h1>
-<h3>Create a User</h3>
-<form action='/users' method='post'>
-    <label for='name'>Name:</label>
-    <input type='text' name='name'>
-    <label for='email'>Email:</label>
-    <input type='text' name='email'>
-    <input type='submit' value='create user'>
-</form>
+<div class="counter">
+    <h2>counter 1</h2>
+    <h3>clicked {{session['counter_1']}} times</h3>
+    <a href="/counter/test">click me</a>
+</div>
 
 </body>
 </html>

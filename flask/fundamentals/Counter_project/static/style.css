@@ -1,0 +1,16 @@
+.counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h2 {
+    background-color: blue;
+}
+
+a {
+    max-width: 100px;
+    max-width: 100px;
+    background-color: bisque;
+}

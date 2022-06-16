@@ -1,20 +1,23 @@
-from flask import Flask, render_template, request ,redirect
+from flask import Flask, render_template, session, redirect
+
 app = Flask(__name__)
 # our index route will handle rendering our form
+app.secret_key = "password"[=]
 
 @app.route('/')
 def index():
-    return render_template("index.html")
 
-@app.route('/users', methods=['POST'])
-def create_user():
-    print("Got Post Info")
-    print(request.form)
-    #never render a template on post request
-    #Instead we will redirect to our index route
-    return redrect('/')
+    if 'counter_1' not in session:
+        session['counter_1'] = 0
 
+    return render_template('index.html')
 
+@app.route('/counter/test')
+def manipulate_counter():
+
+    session[f'counter_1'] += 1
+
+    return redirect('/')
 
 if __name__ == "__main__":
     app.run(debug=True)
