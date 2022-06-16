@@ -2,7 +2,7 @@ from flask import Flask, render_template, session, redirect
 
 app = Flask(__name__)
 # our index route will handle rendering our form
-app.secret_key = "password"[=]
+app.secret_key = "password"
 
 @app.route('/')
 def index():
@@ -16,6 +16,13 @@ def index():
 def manipulate_counter():
 
     session[f'counter_1'] += 1
+
+    return redirect('/')
+
+@app.route('/reset')
+def reset():
+
+    session[f'counter_1'] = 0
 
     return redirect('/')
 
