@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+        <!-- name, Dojo Location, Favorite Programming language, comments section -->
+        <h1>How has your experience been with coding dojo?</h1>
+        <p>please let us know</p>
+
+    <form action="/process" method="POST">
+
+        <input type="text" placeholder="enter name" name="name">
+        <select name="location" id="location">
+            <option value="chicago">Chicago</option>
+            <option value="New York">New York</option>
+        </select>
+        <select name="language" id="language">
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+        </select>
+        
+        <input type="text" placeholder="comment" name="comment">
+
+        <input type="submit">
+
+
+    </form>
+
+</body>
+</html>
