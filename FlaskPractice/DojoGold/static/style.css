@@ -1,0 +1,6 @@
+.activities {
+    display: block;
+    max-height: 100px;
+    max-width: 600px;
+    overflow: scroll;
+}

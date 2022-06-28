@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <p>You current gold {{ session['gold'] }}</p>
+    
+    <h3>farm</h3>
+    <p>10 to 20 gold</p>
+    <form action="/process_money" method="POST">
+        <input type="hidden" name="farm">
+        <input type="submit" value="find gold!">
+    </form>
+
+    <h3>cave</h3>
+    <p>5 to 10 gold</p>
+    <form action="/process_money" method="POST">
+        <input type="hidden" name="cave">
+        <input type="submit" value="find gold!">
+    </form>
+
+    <h3>house</h3>
+    <p>2 to 5 gold</p>
+    <form action="/process_money" method="POST">
+        <input type="hidden" name="house">
+        <input type="submit" value="find gold!">
+    </form>
+    
+    <h3>casino</h3>
+    <p>-50 to 50 gold</p>
+    <form action="/process_money" method="POST">
+        <input type="hidden" name="casino">
+        <input type="submit" value="find gold!">
+    </form>
+
+    <form action="/restart" method="POST">
+        <input type="hidden" name="restart">
+        <input type="submit" value="restart">
+    </form>
+        <div class="activities">
+            {% for activity in session["activities"] %}
+                <p>{{activity}}</p>
+            {% endfor %}
+        </div>
+</body>
+</html> 
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+<p> How to:</p> 
+<ol>
+    <li>make the activity red or green based off of successful activity</li> 
+    
+    <li>how to reduce lines of code in 'gold_found' function</li>
+</ol>
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
