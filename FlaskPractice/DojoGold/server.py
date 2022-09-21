@@ -17,27 +17,12 @@ def index():
 def process():
     print(request.form)
     
-    def gold_found():
-        i =0
-        for x in request.form.keys():
-            if x == "farm":
-                i += random.randint(10, 20)
-                session["activities"] += [f"you found {i} gold in the {x} {datetime.now()}"]
-                return i
-            elif x == "cave":
-                i += random.randint(5, 10)
-                session["activities"] += [(f"you found {i} gold in the {x} {datetime.now()}")]
-                return i
-            elif x == "house":
-                i += random.randint(2,5)
-                session["activities"] += [(f"you found {i} gold in the {x} {datetime.now()}")]
-                return i
-            elif x == "casino":
-                i += random.randint(-50, 50)
-                session["activities"] += [(f"you found {i} gold in the {x} {datetime.now()}")]
-                return i
+    locations = {'farm': [10, 20]}
 
-    session['gold'] += gold_found()
+    gold = random.randint(locations[request.form['location']][0], locations[request.form['location']][0])
+    session['activities'].append({'message': f"Gained {gold} gold at the {request.form['location']}"})
+
+    session['gold'] += gold
     print(request.form)
 
     return redirect('/')
